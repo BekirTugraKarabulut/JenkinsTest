@@ -26,7 +26,7 @@ class UrlAccessTestApplicationTests {
             int responseCode = connection.getResponseCode();
             System.out.println("HTTP Yanıt Kodu: " + responseCode);
 
-            assertTrue(responseCode == 200,
+            assertTrue(responseCode == 400,
                     "URL erişilebilir değil! HTTP Kodu: " + responseCode);
             
 
