@@ -1,15 +1,12 @@
 package org.tugra.urlaccesstest;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static org.assertj.core.api.Fail.fail;
-import static org.springframework.test.util.AssertionErrors.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-@SpringBootTest
 class UrlAccessTestApplicationTests {
 
     private static final String TEST_URL = "https://example.com";
@@ -30,8 +27,9 @@ class UrlAccessTestApplicationTests {
             int responseCode = connection.getResponseCode();
             System.out.println("HTTP Yanıt Kodu: " + responseCode);
 
-            assertTrue("URL erişilebilir değil! HTTP Kodu: " + responseCode,
-                    responseCode >= 200 && responseCode < 400);
+            // 200-399 arası kodları başarılı kabul et
+            assertTrue(responseCode >= 200 && responseCode < 400,
+                    "URL erişilebilir değil! HTTP Kodu: " + responseCode);
 
             System.out.println("✓ URL başarıyla erişilebilir durumda!");
             connection.disconnect();
