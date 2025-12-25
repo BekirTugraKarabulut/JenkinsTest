@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 class UrlAccessTestApplicationTests {
 
@@ -29,6 +28,9 @@ class UrlAccessTestApplicationTests {
 
             assertTrue(responseCode >= 200 && responseCode < 400,
                     "URL erişilebilir değil! HTTP Kodu: " + responseCode);
+            
+            assertFalse(responseCode >= 400,
+                    "URL erişiminde hata var! HTTP Kodu: " + responseCode);
 
             System.out.println("✓ URL başarıyla erişilebilir durumda!");
             connection.disconnect();
