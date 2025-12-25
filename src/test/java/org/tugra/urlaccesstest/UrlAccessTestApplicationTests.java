@@ -27,7 +27,6 @@ class UrlAccessTestApplicationTests {
             int responseCode = connection.getResponseCode();
             System.out.println("HTTP Yanıt Kodu: " + responseCode);
 
-            // 200-399 arası kodları başarılı kabul et
             assertTrue(responseCode >= 200 && responseCode < 400,
                     "URL erişilebilir değil! HTTP Kodu: " + responseCode);
 
